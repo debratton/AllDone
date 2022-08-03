@@ -9,10 +9,13 @@ import SwiftUI
 
 struct BackgroundGradientView: View {
     // MARK: - PROPERTIES
+    var color1: Color?
+    var color2: Color?
+    var color3: Color?
     
     // MARK: - BODY
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [.blue, .blue.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
+        LinearGradient(gradient: Gradient(colors: [color1 ?? .blue, color2?.opacity(0.5) ?? .blue]), startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
     }
 }
@@ -20,6 +23,6 @@ struct BackgroundGradientView: View {
 // MARK: - PREVIEW
 struct BackgroundGradientView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundGradientView()
+        BackgroundGradientView(color1: .blue, color2: .blue, color3: .blue)
     }
 }

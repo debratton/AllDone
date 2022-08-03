@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct LogoView: View {
+    // MARK: - PROPERTIES
+    var width: CGFloat
+    var height: CGFloat
+    var imageName: String
+    var title: String
+    
+    // MARK: - BODY
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: width, height: height)
+            Text(title)
+                .foregroundColor(.white)
+                .font(.system(size: 25))
+                .fontWeight(.semibold)
+        } //END:VSTACK
     }
 }
 
+// MARK: - PREVIEW
 struct LogoView_Previews: PreviewProvider {
     static var previews: some View {
-        LogoView()
+        ZStack {
+            BackgroundGradientView()
+            LogoView(width: 150, height: 150, imageName: "LoginLogo", title: "AllDone")
+        } //END:ZSTACK
     }
 }
