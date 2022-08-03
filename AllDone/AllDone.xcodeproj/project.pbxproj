@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		90E4AE80289AD5A200875B76 /* AllDoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4AE7F289AD5A200875B76 /* AllDoneApp.swift */; };
-		90E4AE82289AD5A200875B76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4AE81289AD5A200875B76 /* ContentView.swift */; };
+		90E4AE82289AD5A200875B76 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4AE81289AD5A200875B76 /* HomeView.swift */; };
 		90E4AE84289AD5A300875B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E4AE83289AD5A300875B76 /* Assets.xcassets */; };
 		90E4AE87289AD5A300875B76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E4AE86289AD5A300875B76 /* Preview Assets.xcassets */; };
+		90EDA515289AEF2B00E77D2C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA514289AEF2B00E77D2C /* LoginView.swift */; };
+		90EDA519289AF3F000E77D2C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA518289AF3F000E77D2C /* SignUpView.swift */; };
+		90EDA51B289AF54D00E77D2C /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51A289AF54D00E77D2C /* BackgroundGradientView.swift */; };
+		90EDA51D289AF6F700E77D2C /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51C289AF6F700E77D2C /* LogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		90E4AE7C289AD5A200875B76 /* AllDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E4AE7F289AD5A200875B76 /* AllDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDoneApp.swift; sourceTree = "<group>"; };
-		90E4AE81289AD5A200875B76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		90E4AE81289AD5A200875B76 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		90E4AE83289AD5A300875B76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90E4AE86289AD5A300875B76 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		90EDA514289AEF2B00E77D2C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		90EDA518289AF3F000E77D2C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		90EDA51A289AF54D00E77D2C /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
+		90EDA51C289AF6F700E77D2C /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,11 @@
 		90E4AE7E289AD5A200875B76 /* AllDone */ = {
 			isa = PBXGroup;
 			children = (
-				90E4AE7F289AD5A200875B76 /* AllDoneApp.swift */,
-				90E4AE81289AD5A200875B76 /* ContentView.swift */,
+				90EDA510289AEE8500E77D2C /* App */,
+				90EDA516289AF38C00E77D2C /* Utils */,
+				90EDA513289AEEBB00E77D2C /* Model */,
+				90EDA512289AEEAD00E77D2C /* View Model */,
+				90EDA511289AEE8F00E77D2C /* View */,
 				90E4AE83289AD5A300875B76 /* Assets.xcassets */,
 				90E4AE85289AD5A300875B76 /* Preview Content */,
 			);
@@ -65,6 +76,55 @@
 				90E4AE86289AD5A300875B76 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		90EDA510289AEE8500E77D2C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90E4AE7F289AD5A200875B76 /* AllDoneApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		90EDA511289AEE8F00E77D2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90EDA517289AF3B100E77D2C /* Authentication */,
+				90E4AE81289AD5A200875B76 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90EDA512289AEEAD00E77D2C /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		90EDA513289AEEBB00E77D2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90EDA516289AF38C00E77D2C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				90EDA51A289AF54D00E77D2C /* BackgroundGradientView.swift */,
+				90EDA51C289AF6F700E77D2C /* LogoView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		90EDA517289AF3B100E77D2C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				90EDA514289AEF2B00E77D2C /* LoginView.swift */,
+				90EDA518289AF3F000E77D2C /* SignUpView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +197,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E4AE82289AD5A200875B76 /* ContentView.swift in Sources */,
+				90EDA519289AF3F000E77D2C /* SignUpView.swift in Sources */,
+				90EDA51D289AF6F700E77D2C /* LogoView.swift in Sources */,
+				90EDA515289AEF2B00E77D2C /* LoginView.swift in Sources */,
+				90E4AE82289AD5A200875B76 /* HomeView.swift in Sources */,
+				90EDA51B289AF54D00E77D2C /* BackgroundGradientView.swift in Sources */,
 				90E4AE80289AD5A200875B76 /* AllDoneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +348,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +377,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
