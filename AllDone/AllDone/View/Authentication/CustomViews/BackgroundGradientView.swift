@@ -15,7 +15,7 @@ struct BackgroundGradientView: View {
     
     // MARK: - BODY
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [color1 ?? .blue, color2?.opacity(0.5) ?? .blue]), startPoint: .top, endPoint: .bottom)
+        LinearGradient(gradient: Gradient(colors: [color1 ?? .blue, color2?.opacity(0.5) ?? .white, color3?.opacity(0.1) ?? .white]), startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
     }
 }
