@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     // MARK: - PROPERTIES
+    @EnvironmentObject var authVM: AuthViewModel
     @Environment(\.dismiss) var closeView
     @Environment(\.colorScheme) var colorScheme
     @State private var firstName = ""
@@ -16,13 +17,16 @@ struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    @State private var isShowingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     // MARK: - BODY
     var body: some View {
         ZStack {
             BackgroundGradientView(color1: .blue, color2: .blue)
             VStack {
-                LogoView(width: 150, height: 150, imageName: "LoginLogo", title: "AllDone")
+                LogoView(width: 150, height: 150, imageName: "LoginLogo", title: "New User Registration")
                     .padding()
                 VStack(spacing: 20) {
                     UserTextView(text: $firstName, placeholder: "First Name", imageName: "person")
@@ -33,7 +37,13 @@ struct SignUpView: View {
                 } //END:VSTACK
                 .padding(.horizontal)
                 Button {
-                    //
+                    authVM.register(email: email, password: password, firstName: firstName, lastName: lastName) { result, error in
+                        if !result {
+                            alertTitle = "Sign Up Error"
+                            alertMessage = "\(error)"
+                            isShowingAlert.toggle()
+                        }
+                    }
                 } label: {
                     Text("Sign Up")
                         .padding()
@@ -54,8 +64,6 @@ struct SignUpView: View {
                     .foregroundColor(.blue)
                     .font(.callout)
                 }
-
-
             } //END:VSTACK
         } //END:ZSTACK
         .navigationTitle("")
@@ -70,6 +78,9 @@ struct SignUpView: View {
                 } //END:BUTTON
             } //END:TOOLBARITEM
         } //END:TOOLBAR
+        .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 

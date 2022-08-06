@@ -9,9 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     // MARK: - PROPERTIES
+    @EnvironmentObject var authVM: AuthViewModel
     @Environment(\.colorScheme) var colorScheme
     @State private var email = ""
     @State private var password = ""
+    @State private var isShowingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     // MARK: - BODY
     var body: some View {
@@ -19,7 +23,7 @@ struct LoginView: View {
             ZStack {
                 BackgroundGradientView(color1: .blue, color2: .blue)
                 VStack {
-                    LogoView(width: 150, height: 150, imageName: "LoginLogo", title: "AllDone")
+                    LogoView(width: 150, height: 150, imageName: "LoginLogo", title: "Login")
                         .padding()
                     VStack(spacing: 20) {
                         EmailTextView(text: $email, placeholder: "Email", imageName: "envelope")
@@ -42,7 +46,13 @@ struct LoginView: View {
                     } //END:HSTACK
                     .padding([.top, .trailing])
                     Button {
-                        //
+                        authVM.login(email: email, password: password) { result, error in
+                            if !result {
+                                alertTitle = "Login Error"
+                                alertMessage = "\(error)"
+                                isShowingAlert.toggle()
+                            }
+                        }
                     } label: {
                         Text("Login")
                             .padding()
@@ -68,6 +78,9 @@ struct LoginView: View {
             } // END:ZSTACK
             .navigationBarHidden(true)
         } //END:NAVVIEW
+        .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
     }
 }
 

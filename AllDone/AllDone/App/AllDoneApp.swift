@@ -16,7 +16,8 @@ struct AllDoneApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            VerifyView()
+                .environmentObject(AuthViewModel.shared)
                 .preferredColorScheme(.dark)
         }
     }
