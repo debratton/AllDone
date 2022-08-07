@@ -11,28 +11,25 @@ import FirebaseFirestoreSwift
 
 struct Todo: Identifiable, Codable {
     @DocumentID var id: String? = UUID().uuidString
-    let ownerID: String
+    let ownerId: String
     var title: String
     var description: String
     var todoType: String
     var completed: Bool
-    var documentID: String? = ""
+    //var documentID: String? = ""
     
-    func getType() -> SelectedButton {
+    func getType() -> Categories {
         switch todoType {
-        case "Groceries":
-            return .groceries
-        case "Work":
-            return .work
-        case "School":
-            return .school
+        case "All":
+            return .All
         case "Home":
-            return .home
-        case "Personal":
-            return .personal
+            return .Home
+        case "Work":
+            return .Work
+        case "Other":
+            return .Other
         default:
-            return .other
+            return .All
         }
     }
-    
 }

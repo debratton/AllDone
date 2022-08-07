@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		90A6F279289D59BA001F3CB2 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F278289D59BA001F3CB2 /* AppUser.swift */; };
 		90A6F27B289D5B32001F3CB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F27A289D5B32001F3CB2 /* Todo.swift */; };
-		90A6F27E289D6222001F3CB2 /* SelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F27D289D6222001F3CB2 /* SelectedButton.swift */; };
+		90A6F27E289D6222001F3CB2 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F27D289D6222001F3CB2 /* Categories.swift */; };
 		90A6F281289D7AED001F3CB2 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F280289D7AED001F3CB2 /* MockData.swift */; };
 		90A6F283289D7C1B001F3CB2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F282289D7C1B001F3CB2 /* AuthViewModel.swift */; };
 		90BF6E0E289C25A20025244F /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BF6E0D289C25A20025244F /* ForgetPasswordView.swift */; };
@@ -35,13 +35,14 @@
 		90EDA524289B248700E77D2C /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA523289B248700E77D2C /* CustomSecureField.swift */; };
 		90EDA526289B291400E77D2C /* PasswordTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA525289B291400E77D2C /* PasswordTextView.swift */; };
 		90EEE642289ED07A00F7AA2B /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EEE641289ED07A00F7AA2B /* TodoViewModel.swift */; };
+		90EEE644289EE78300F7AA2B /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EEE643289EE78300F7AA2B /* AddTodoView.swift */; };
 		90FBCCB1289DB0C400A900C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBCCB0289DB0C400A900C3 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		90A6F278289D59BA001F3CB2 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		90A6F27A289D5B32001F3CB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		90A6F27D289D6222001F3CB2 /* SelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedButton.swift; sourceTree = "<group>"; };
+		90A6F27D289D6222001F3CB2 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		90A6F280289D7AED001F3CB2 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		90A6F282289D7C1B001F3CB2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		90BF6E0D289C25A20025244F /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		90EDA523289B248700E77D2C /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		90EDA525289B291400E77D2C /* PasswordTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextView.swift; sourceTree = "<group>"; };
 		90EEE641289ED07A00F7AA2B /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		90EEE643289EE78300F7AA2B /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 		90FBCCB0289DB0C400A900C3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +87,7 @@
 		90A6F27C289D620E001F3CB2 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				90A6F27D289D6222001F3CB2 /* SelectedButton.swift */,
+				90A6F27D289D6222001F3CB2 /* Categories.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -171,6 +173,7 @@
 				90EDA517289AF3B100E77D2C /* Authentication */,
 				90E4AE81289AD5A200875B76 /* VerifyView.swift */,
 				90FBCCB0289DB0C400A900C3 /* MainView.swift */,
+				90EEE643289EE78300F7AA2B /* AddTodoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,11 +311,12 @@
 			files = (
 				90EDA526289B291400E77D2C /* PasswordTextView.swift in Sources */,
 				90EDA522289B1B6B00E77D2C /* EmailTextView.swift in Sources */,
+				90EEE644289EE78300F7AA2B /* AddTodoView.swift in Sources */,
 				90E8B809289C5F11003C964D /* UserTextView.swift in Sources */,
 				90A6F281289D7AED001F3CB2 /* MockData.swift in Sources */,
 				90EDA51F289B150100E77D2C /* CustomTextField.swift in Sources */,
 				90FBCCB1289DB0C400A900C3 /* MainView.swift in Sources */,
-				90A6F27E289D6222001F3CB2 /* SelectedButton.swift in Sources */,
+				90A6F27E289D6222001F3CB2 /* Categories.swift in Sources */,
 				90A6F27B289D5B32001F3CB2 /* Todo.swift in Sources */,
 				90EDA519289AF3F000E77D2C /* SignUpView.swift in Sources */,
 				90A6F283289D7C1B001F3CB2 /* AuthViewModel.swift in Sources */,

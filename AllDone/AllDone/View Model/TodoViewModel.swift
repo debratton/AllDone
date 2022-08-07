@@ -7,47 +7,47 @@
 
 import SwiftUI
 import Firebase
+//import FirebaseFirestoreSwift
 
 class TodoViewModel: ObservableObject {
     @Published var todos = [Todo]()
     @Published var showCreateTodoView = false
-    @Published var filterTodoSelected: SelectedButton = .all
+    @Published var filterTodoSelected: Categories = .All
     @Published var todosFiltered = [Todo]()
     
     init() {
-        loadTodos()
+        //loadTodos()
     }
     
     func loadTodos() {
         guard let user = AuthViewModel.shared.currentUser else { return }
-        let query = COLLECTION_USERS.document(user.id ?? "").collection("to-dos").order(by: "completed", descending: false)
-        query.addSnapshotListener { snapshot, error in
-            guard let documents = snapshot?.documents else { return }
-            self.todos = documents.compactMap({ try? $0.data(as: Todo.self)})
-            
-            for index in stride(from: 0, to: self.todos.count, by: 1) {
-                self.todos[index].documentID = documents[index].documentID
-            }
-            self.todosFiltered = self.todos
-            
-            if self.filterTodoSelected != .all {
-                self.todosFiltered = self.todos.filter({ todo in
-                    return todo.todoType == self.filterTodoSelected.rawValue
+        COLLECTION_USERS.document(user.uid)
+            .collection("to-dos")
+            .addSnapshotListener { snapshot, error in
+                guard let documents = snapshot?.documents else {
+                    print("DEBUG: NO DOCS")
+                    return
+                }
+                self.todos = documents.compactMap({ docSnapshot -> Todo? in
+                    return try? docSnapshot.data(as: Todo.self)
                 })
-            } else {
-                self.todosFiltered = self.todos
             }
-        }
+        print("DEBUG: TODO COUNT: \(todos.count)")
+    }
+    
+    func searchTodos(searchText: String) {
+        //self.todos = self.todos.filter({ $0.title .contains(searchText)})
+        self.todos = self.todos.filter({ $0.title .localizedCaseInsensitiveContains(searchText)})
     }
     
     func addTodo(todo: Todo, completion: @escaping (Bool, String) -> Void) {
         guard let user = AuthViewModel.shared.currentUser else { return }
         let data: [String: Any] = [
-            "title": todo.title,
-            "description": todo.description,
-            "type": todo.todoType,
-            "completed": todo.completed,
-            "ownerUid": user.id ?? ""
+            TODO_TITLE: todo.title,
+            TODO_DESCRIPTION: todo.description,
+            TODO_TYPE: todo.todoType,
+            TODO_COMPLETED: todo.completed,
+            TODO_OWNER: user.id ?? ""
         ]
         COLLECTION_USERS.document(user.id ?? "").collection("to-dos").addDocument(data: data) { error in
             if let error = error {
