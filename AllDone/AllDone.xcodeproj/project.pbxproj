@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		909F599A28A1A5A800FD7251 /* TodoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909F599928A1A5A800FD7251 /* TodoDetails.swift */; };
 		90A6F279289D59BA001F3CB2 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F278289D59BA001F3CB2 /* AppUser.swift */; };
 		90A6F27B289D5B32001F3CB2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F27A289D5B32001F3CB2 /* Todo.swift */; };
 		90A6F27E289D6222001F3CB2 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F27D289D6222001F3CB2 /* Categories.swift */; };
 		90A6F281289D7AED001F3CB2 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F280289D7AED001F3CB2 /* MockData.swift */; };
 		90A6F283289D7C1B001F3CB2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6F282289D7C1B001F3CB2 /* AuthViewModel.swift */; };
+		90AA9E3E28A05741001A3DE4 /* MainCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AA9E3D28A05741001A3DE4 /* MainCellView.swift */; };
 		90BF6E0E289C25A20025244F /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BF6E0D289C25A20025244F /* ForgetPasswordView.swift */; };
 		90E4AE80289AD5A200875B76 /* AllDoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4AE7F289AD5A200875B76 /* AllDoneApp.swift */; };
 		90E4AE82289AD5A200875B76 /* VerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4AE81289AD5A200875B76 /* VerifyView.swift */; };
@@ -40,11 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		909F599928A1A5A800FD7251 /* TodoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetails.swift; sourceTree = "<group>"; };
 		90A6F278289D59BA001F3CB2 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		90A6F27A289D5B32001F3CB2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		90A6F27D289D6222001F3CB2 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		90A6F280289D7AED001F3CB2 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		90A6F282289D7C1B001F3CB2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		90AA9E3D28A05741001A3DE4 /* MainCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellView.swift; sourceTree = "<group>"; };
 		90BF6E0D289C25A20025244F /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		90E4AE7C289AD5A200875B76 /* AllDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E4AE7F289AD5A200875B76 /* AllDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDoneApp.swift; sourceTree = "<group>"; };
@@ -173,7 +177,9 @@
 				90EDA517289AF3B100E77D2C /* Authentication */,
 				90E4AE81289AD5A200875B76 /* VerifyView.swift */,
 				90FBCCB0289DB0C400A900C3 /* MainView.swift */,
+				90AA9E3D28A05741001A3DE4 /* MainCellView.swift */,
 				90EEE643289EE78300F7AA2B /* AddTodoView.swift */,
+				909F599928A1A5A800FD7251 /* TodoDetails.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,12 +316,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				90EDA526289B291400E77D2C /* PasswordTextView.swift in Sources */,
+				90AA9E3E28A05741001A3DE4 /* MainCellView.swift in Sources */,
 				90EDA522289B1B6B00E77D2C /* EmailTextView.swift in Sources */,
 				90EEE644289EE78300F7AA2B /* AddTodoView.swift in Sources */,
 				90E8B809289C5F11003C964D /* UserTextView.swift in Sources */,
 				90A6F281289D7AED001F3CB2 /* MockData.swift in Sources */,
 				90EDA51F289B150100E77D2C /* CustomTextField.swift in Sources */,
 				90FBCCB1289DB0C400A900C3 /* MainView.swift in Sources */,
+				909F599A28A1A5A800FD7251 /* TodoDetails.swift in Sources */,
 				90A6F27E289D6222001F3CB2 /* Categories.swift in Sources */,
 				90A6F27B289D5B32001F3CB2 /* Todo.swift in Sources */,
 				90EDA519289AF3F000E77D2C /* SignUpView.swift in Sources */,

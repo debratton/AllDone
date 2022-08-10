@@ -21,6 +21,7 @@ struct AddTodoView: View {
     @State private var isshowingAlert = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
+    @FocusState private var isFocused: Bool
     let user: AppUser
     
     // MARK: - BODY
@@ -28,7 +29,8 @@ struct AddTodoView: View {
         NavigationView {
             VStack {
                 ZStack {
-                    colorScheme == .dark ? Color.white : Color.black
+                    //colorScheme == .dark ? Color.white : Color.black
+                    Color.blue
                     HStack {
                         Button {
                             closeView()
@@ -78,6 +80,18 @@ struct AddTodoView: View {
                     }
                     ZStack(alignment: .leading) {
                         TextEditor(text: $description)
+                            .focused($isFocused)
+                            .onChange(of: isFocused) { isFocused in
+                                if isFocused {
+                                    placeholderIsHidden = true
+                                } else {
+                                    if description.isEmpty {
+                                        placeholderIsHidden = false
+                                    } else {
+                                        placeholderIsHidden = true
+                                    }
+                                }
+                            }
                             .onChange(of: description) { descriptionValue in
                                 if descriptionValue.isEmpty {
                                     placeholderIsHidden = false
@@ -85,13 +99,16 @@ struct AddTodoView: View {
                                     placeholderIsHidden = true
                                 }
                             }
-                            .onTapGesture {
-                                placeholderIsHidden.toggle()
-                            }
-                        Text(descriptionPlaceholder)
-                            .foregroundColor(.gray)
-                            .opacity(placeholderIsHidden ? 0 : 1)
                             
+                        if description.isEmpty {
+                            Text(descriptionPlaceholder)
+                                .foregroundColor(.gray)
+                                .opacity(placeholderIsHidden ? 0 : 1)
+                                .onTapGesture {
+                                    placeholderIsHidden = true
+                                    isFocused = true
+                                }
+                        }
                     } //END:ZSTACK
                 } //END:FORM
                 Spacer()

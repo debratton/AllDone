@@ -14,19 +14,87 @@ struct MainView: View {
     @ObservedObject private var todoVM = TodoViewModel()
     @State private var searchText = ""
     @State private var isShowingAddTodo = false
+    @State private var isShowingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var selectedType: Categories = .All
     let user: AppUser
+    
+    func deleteTodo(at indexSet: IndexSet) {
+        indexSet.forEach { index in
+            let todo = todoVM.todos[index]
+            todoVM.deleteTodo(todoId: todo.id ?? "") { result, error in
+                if !result {
+                    alertTitle = "Error Deleting Todo"
+                    alertMessage = "\(error)"
+                    isShowingAlert.toggle()
+                } else {
+                    todoVM.loadTodos()
+                }
+            }
+        }
+    }
     
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
+                Menu("Filter List: \(selectedType.rawValue)") {
+                    Button {
+                        selectedType = .All
+                        todoVM.loadTodos()
+                    } label: {
+                        Text("All")
+                    }
+                    Button {
+                        selectedType = .Groceries
+                        todoVM.loadTodosFiltered(type: .Groceries)
+                    } label: {
+                        Text("Groceries")
+                    }
+                    Button {
+                        selectedType = .Home
+                        todoVM.loadTodosFiltered(type: .Home)
+                    } label: {
+                        Text("Home")
+                    }
+                    Button {
+                        selectedType = .Work
+                        todoVM.loadTodosFiltered(type: .Work)
+                    } label: {
+                        Text("Work")
+                    }
+                    Button {
+                        selectedType = .School
+                        todoVM.loadTodosFiltered(type: .School)
+                    } label: {
+                        Text("School")
+                    }
+                    Button {
+                        selectedType = .Personal
+                        todoVM.loadTodosFiltered(type: .Personal)
+                    } label: {
+                        Text("Personal")
+                    }
+                    Button {
+                        selectedType = .Other
+                        todoVM.loadTodosFiltered(type: .Other)
+                    } label: {
+                        Text("Other")
+                    }
+                }
                 List {
                     ForEach(todoVM.todos, id: \.id) { todo in
-                        Text(todo.title)
-                            .foregroundColor(.white)
+                        NavigationLink {
+                            TodoDetails(todo: todo, user: user)
+                        } label: {
+                            MainCellView(todo: todo)
+                        } //END:NAVLINK
                     } //END:FOREACH
+                    .onDelete(perform: deleteTodo)
                 } //END:LIST
-                .searchable(text: $searchText)
+                .listStyle(.plain)
+                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
                 .onChange(of: searchText) { newValue in
                     if newValue.isEmpty {
                         todoVM.loadTodos()
@@ -36,6 +104,7 @@ struct MainView: View {
                 }
             } //END:VSTACK
             .navigationTitle("Todo List")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -43,7 +112,7 @@ struct MainView: View {
                     } label: {
                         HStack {
                             Image(systemName: "xmark.circle")
-                            Text(user.email)
+                            Text(user.firstName)
                         } //END:HSTACK
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         .font(.caption)
@@ -51,7 +120,6 @@ struct MainView: View {
                 } //END:TOOLBARITEM
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print("ADD CLICKED")
                         isShowingAddTodo.toggle()
                     } label: {
                         Image(systemName: "plus.circle")
